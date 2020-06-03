@@ -29,14 +29,29 @@ public class ControlFlowExercises {
 //            i -= 5;
 //        } while (i >= -10);
 
-        // Create a do-while loop that starts at 2 and displays the number squared on each line while < 1,000,000.
-        // Output should be: 2\n4\n16\n256\n65536
+//        // Create a do-while loop that starts at 2 and displays the number squared on each line while < 1,000,000.
+//        // Output should be: 2\n4\n16\n256\n65536
+//        long i = 2;
+//        do {
+//            System.out.printf("%d%n", i);
+//            i = i * i;
+//        } while (i <= 1000000);
 
-        long i = 2;
-        do {
+        // 1c. For
+        // Refactor the previous 2 exercises to use a for loop instead
+
+//        // redo 1a change While -> For Loop
+//        for (int i = 5; i <= 15; i++) {
+//            System.out.printf("%d ", i);
+//        }
+
+        // redo 1b. change Do While -> For Loop
+        // count by 2's starting w/0 & ending at 100. Follow each w/new line.
+        for (int i = 0; i <= 100; i += 2) {
             System.out.printf("%d%n", i);
-            i = i * i;
-        } while (i <= 1000000);
+        }
+
+
 
 
 
