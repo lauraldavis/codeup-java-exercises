@@ -52,10 +52,17 @@ public class ControlFlowExercises {
 //            System.out.printf("%d%n", i);
 //        }
 
-        // count backwards by 5's from 100 to -10
-        for (int i = 100; i >= -10; i -= 5) {
+//        // count backwards by 5's from 100 to -10
+//        for (int i = 100; i >= -10; i -= 5) {
+//            System.out.printf("%d%n", i);
+//        }
+
+        // start at 2 and displays the number squared on each line while < 1,000,000.
+        // Output should be: 2\n4\n16\n256\n65536
+        for (long i = 2; i <= 1000000; i *= i) {
             System.out.printf("%d%n", i);
         }
+
 
 
 
