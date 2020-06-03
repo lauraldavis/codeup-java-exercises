@@ -34,7 +34,7 @@ public class ControlFlowExercises {
 //        long i = 2;
 //        do {
 //            System.out.printf("%d%n", i);
-//            i = i * i;
+//            i *= i;
 //        } while (i <= 1000000);
 
         // 1c. For
@@ -57,12 +57,25 @@ public class ControlFlowExercises {
 //            System.out.printf("%d%n", i);
 //        }
 
-        // start at 2 and displays the number squared on each line while < 1,000,000.
-        // Output should be: 2\n4\n16\n256\n65536
-        for (long i = 2; i <= 1000000; i *= i) {
-            System.out.printf("%d%n", i);
-        }
+//        // start at 2 and displays the number squared on each line while < 1,000,000.
+//        // Output should be: 2\n4\n16\n256\n65536
+//        for (long i = 2; i <= 1000000; i *= i) {
+//            System.out.printf("%d%n", i);
+//        }
 
+        // 2. Fizzbuzz
+        // Print numbers 1 to 100, except for multiple of 3 print "Fizz" / multiple of 5 print "Buzz" / multiple of 3 and 5 print "FizzBuzz"
+        for (int i = 1; i <= 100; i++) {
+            if (i % 5 == 0 && i % 3 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
+        }
 
 
 
