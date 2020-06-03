@@ -22,12 +22,21 @@ public class ControlFlowExercises {
 //            i += 2;
 //        } while (i <= 100);
 
-        // Alter loop to count backwards by 5's from 100 to -10
-        int i = 100;
+//        // Alter loop to count backwards by 5's from 100 to -10
+//        int i = 100;
+//        do {
+//            System.out.printf("%d%n", i);
+//            i -= 5;
+//        } while (i >= -10);
+
+        // Create a do-while loop that starts at 2 and displays the number squared on each line while < 1,000,000.
+        // Output should be: 2\n4\n16\n256\n65536
+
+        long i = 2;
         do {
             System.out.printf("%d%n", i);
-            i -= 5;
-        } while (i >= -10);
+            i = i * i;
+        } while (i <= 1000000);
 
 
 
