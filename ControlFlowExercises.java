@@ -46,8 +46,14 @@ public class ControlFlowExercises {
 //        }
 
         // redo 1b. change Do While -> For Loop
-        // count by 2's starting w/0 & ending at 100. Follow each w/new line.
-        for (int i = 0; i <= 100; i += 2) {
+
+//        // count by 2's starting w/0 & ending at 100. Follow each w/new line.
+//        for (int i = 0; i <= 100; i += 2) {
+//            System.out.printf("%d%n", i);
+//        }
+
+        // count backwards by 5's from 100 to -10
+        for (int i = 100; i >= -10; i -= 5) {
             System.out.printf("%d%n", i);
         }
 
