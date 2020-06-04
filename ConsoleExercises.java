@@ -11,6 +11,7 @@ public class ConsoleExercises {
         // Explore the Scanner Class
         // 1. Prompt user to enter a integer and store value in int variable using nextInt method. What happens if you input something not an integer?
         Scanner sc = new Scanner(System.in);
+        sc.useDelimiter("\n");
         System.out.print("Please enter an integer: ");
         int userInt = sc.nextInt();
         System.out.println("The user entered: " + userInt);
@@ -51,28 +52,39 @@ public class ConsoleExercises {
 
         // 1. Prompt user to enter values - length and width of codeup classroom. Use nextLine method to get input, parse string to numeric type.
         // Assume the rooms are perfect rectangles and the user will enter valid numeric data for length and width.
-        System.out.print("Enter the length in feet of your classroom: ");
-        int userLength = Integer.parseInt(sc.nextLine());
-        System.out.print("Enter the width in feet of your classroom: ");
-        int userWidth = Integer.parseInt(sc.nextLine());
+        System.out.print("Enter the length in feet of your classroom (as an integer): ");
+        int userLength = Integer.parseInt(sc.next());
+        System.out.print("Enter the width in feet of your classroom (as an integer): ");
+        int userWidth = Integer.parseInt(sc.next());
         System.out.printf("You entered length: %d and width: %d%n", userLength, userWidth);
         // 2. Display the area and perimeter of that classroom. area = length x width, perimeter = (2 x length) + (2 x width)
         System.out.printf("The area is %d ft, the perimeter is %d ft%n", userLength * userWidth, (userLength * 2) + (userWidth * 2) );
 
 
         // Bonuses
-        // In your perimeter/area calculator, accept decimal entries, calculate the volume of the room in addition to area/perimeter.
-        System.out.println("Enter the length in feet of your classroom (decimal number): ");
-        float bLength = Float.parseFloat(sc.nextLine());
-        System.out.println("Enter the width in feet of your classroom (decimal number): ");
-        float bWidth = Float.parseFloat(sc.nextLine());
-        System.out.println("Enter the height in feet of your classroom (decimal number): ");
-        float bHeight = Float.parseFloat(sc.nextLine());
+        // In your perimeter/area calculator, accept decimal entries, calculate volume in addition to area/perimeter.
+        System.out.println("Enter the length in feet of your classroom (as a decimal number): ");
+        float bLength = Float.parseFloat(sc.next());
+        System.out.println("Enter the width in feet of your classroom (as a decimal number): ");
+        float bWidth = Float.parseFloat(sc.next());
+        System.out.println("Enter the height in feet of your classroom (as a decimal number): ");
+        float bHeight = Float.parseFloat(sc.next());
         System.out.printf("You entered length: %.2f and width: %.2f and height: %.2f.%n", bLength, bWidth, bHeight);
-        // 2. Display area and perimeter and volume. area = length x width, perimeter = (2 x length) + (2 x width), volume = area x height.
+        // Display area, perimeter and volume. area = length x width, perimeter = (2 x length) + (2 x width), volume = area x height.
         System.out.printf("The area is %.2f ft%n", bLength * bWidth);
         System.out.printf("The perimeter is %.2f ft%n", (bLength * 2) + (bWidth * 2) );
         System.out.printf("The volume is %.2f ft%n", bLength * bWidth * bHeight );
+        // Change the scanner class delimiter, after it's created, to sc.useDelimiter("\n");
+        // How does it change the way your program operates? (It didn't seem to change, new line is part of what's caught by the default?)
+
+        // Rewrite to use the nextInt method, after changing the delimiter it should handle multiple pieces of user input.
+        // Don't understand the point of this bonus...
+        System.out.println("Enter the size of your classroom, in feet (as integers)");
+        System.out.println("Enter Length, Width, and Height (for example: 8 <Enter>, 9 <Enter>, 10 <Enter>)");
+        int userL = sc.nextInt();
+        int userW = sc.nextInt();
+        int userH = sc.nextInt();
+        System.out.printf("Area: %d ft, Perimeter: %d ft, Volume: %d ft%n", userL * userW, (userL * 2) + (userW * 2), userL * userW * userH);
 
     }
 }
