@@ -44,7 +44,7 @@ public class ConsoleIOBonus {
         sc.nextLine();
         System.out.print("Enter your top three favorite foods, separated by a space: ");
         String userFoods = sc.nextLine();
-        System.out.printf("You entered: %s%n", userFoods);
+//        System.out.printf("You entered: %s%n", userFoods);
         String[] arrFoods = userFoods.split(" ");
         for (int i = 0; i < arrFoods.length; i++) {
             System.out.printf("%d. %s%n", i + 1, arrFoods[i]);
@@ -58,7 +58,7 @@ public class ConsoleIOBonus {
  */
         sc.useDelimiter(",");
         // Result is the same with standard whitespace delimiter or \n or comma (?)
-        System.out.print("Enter three items separated only commas for a grocery list (ex: bread,milk,eggs): ");
+        System.out.print("Enter three items separated only by commas for a grocery list (ex: bread,milk,eggs): ");
         String userList = sc.nextLine();
         System.out.printf("You entered: %s%n", userList);
 
