@@ -99,39 +99,39 @@ public class ControlFlowExercises {
 //            proceed = sc.next();
 //        } while ( proceed.equalsIgnoreCase("y") );
 
-        // 4. Convert number grades to letter grades
-        // Prompt user for number grade from 0 to 100. Display letter grade, prompt user to continue. Assume valid integers for grades.
-        // Only continue if user agrees to. A: 100-88, B: 87-80, C:79-67, D: 66-60, F: 59-0
-        // Bonus: edit grade ranges to include pluses and minuses, ex: 99-100 = A+. (no standards available, just slice off top/bottom 2 pts...)
+//        // 4. Convert number grades to letter grades
+//        // Prompt user for number grade from 0 to 100. Display letter grade, prompt user to continue. Assume valid integers for grades.
+//        // Only continue if user agrees to. A: 100-88, B: 87-80, C:79-67, D: 66-60, F: 59-0
+//        // Bonus: edit grade ranges to include pluses and minuses, ex: 99-100 = A+. (no standards available, just slice off top/bottom 2 pts...)
         String proceed;
         do {
             System.out.print("Please enter a numerical grade from 0 to 100: ");
             int userInt = sc.nextInt();
-            if (userInt >= 99 && userInt <= 100) { // 88-100 A
+            if ( userInt >= 99 ) { // 88-100 A
                 System.out.println("A+");
-            } else if (userInt >= 90 && userInt <= 98) {
+            } else if ( userInt >= 90 ) {
                 System.out.println("A");
-            } else if (userInt >= 88 && userInt <= 89) {
+            } else if ( userInt >= 88 ) {
                 System.out.println("A-");
-            } else if (userInt >= 86 && userInt <= 87) { // 80-87 B
+            } else if ( userInt >= 86 ) { // 80-87 B
                 System.out.println("B+");
-            } else if (userInt >= 82 && userInt <= 85) {
+            } else if ( userInt >= 82 ) {
                 System.out.println("B");
-            } else if (userInt >= 80 && userInt <= 81) {
+            } else if ( userInt >= 80 ) {
                 System.out.println("B-");
-            } else if (userInt >= 78 && userInt <= 79) { // 67-79 C
+            } else if ( userInt >= 78 ) { // 67-79 C
                 System.out.println("C+");
-            } else if (userInt >= 69 && userInt <= 77) {
+            } else if ( userInt >= 69 ) {
                 System.out.println("C");
-            } else if (userInt >= 67 && userInt <= 68) {
+            } else if ( userInt >= 67 ) {
                 System.out.println("C-");
-            } else if (userInt >= 65 && userInt <= 66) { // 60-66 D
+            } else if ( userInt >= 65 ) { // 60-66 D
                 System.out.println("D+");
-            } else if (userInt >= 62 && userInt <= 64) {
+            } else if (userInt >= 62 ) {
                 System.out.println("D");
-            } else if (userInt >= 60 && userInt <= 61) {
+            } else if (userInt >= 60 ) {
                 System.out.println("D-");
-            } else if (userInt >= 0 && userInt <= 59) {
+            } else if (userInt <= 59 ) {
                 System.out.println("F");
             }
             System.out.print("Would you like to continue? (y/n): ");
