@@ -19,7 +19,7 @@ public class MethodsLecture {
     your favorite song.
  */
     public static void favoriteSong(String song) {
-        System.out.println("My favorite sone is: " + song);
+        System.out.println("My favorite song is: " + song);
     }
 /*
     TO DO: Write a public static method called weeksIn that prints
@@ -76,6 +76,15 @@ public class MethodsLecture {
 // HINT: The recursive method should return an int for each number in the series
 // HINT: you may need an additional method using a for loop to actually print
 // each number
+
+    public static long fib(long n) {
+        if ((n == 0 || n == 1)) {
+            return n;
+        } else {
+            return fib(n - 1) + fib(n - 2);
+        }
+    }
+
     public static void main(String[] args) {
         orderFood(); // v1
         favoriteSong("my song");
@@ -84,5 +93,7 @@ public class MethodsLecture {
         orderFood("guacamole"); // v2
         orderFood("tacos",2); // v3
         orderFood("the fajitas", "a margarita (rocks)"); // v4
+
+        System.out.println("The 7th fibonacci number is: " + fib(7));
     }
 }

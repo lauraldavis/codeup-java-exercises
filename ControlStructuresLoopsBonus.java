@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ControlStructuresLoopsBonus {
 
-     static void drawHangman(int misses) {
+     public static void drawHangman(int misses) {
         switch (misses) {
             case 0:
                 System.out.println(
@@ -117,7 +117,7 @@ public class ControlStructuresLoopsBonus {
         }
     }
 
-    static Object stretchText(String content) {
+    public static Object stretchText(String content) {
          // display content with an extra space between each letter
         StringBuilder newContent = new StringBuilder();
         for (int c = 0; c < content.length(); c++) {
