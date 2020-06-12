@@ -5,50 +5,51 @@ public class InputTest {
     public static void main(String[] args) {
         Input in = new Input();
 
-        // Without no argument
+        // Without arguments
+        // String
         String strDefault = in.getString();
         System.out.println("You entered: " + strDefault);
-
-        // With prompt argument
-        String strPrompt = "Please enter a string (one or more words): ";
-        String randString = in.getString(strPrompt);
-        System.out.println("You entered: " + randString);
-
-
-        // Without no argument
+        // boolean
         boolean boolDefault = in.yesNo();
         System.out.println("You entered: " + boolDefault);
+        // int
+        int numDefault = in.getInt();
+        System.out.println("You entered: " + numDefault);
+        // double
+        double dNumDefault = in.getDouble();
+        System.out.println("You entered: " + dNumDefault);
 
-        // With prompt argument
-        String boolPrompt ="Want to continue? (y/n): ";
+        // With arguments
+        // String with prompt
+        String strPrompt = "Enter a string (one or more words): ";
+        String randString = in.getString(strPrompt);
+        System.out.println("You entered: " + randString);
+        // boolean with prompt
+        String boolPrompt = "Do you want to continue? (y/n): ";
         boolean yesNo = in.yesNo(boolPrompt);
         System.out.println("You entered: " + yesNo);
+        // int with prompt
+        String numPrompt = "Enter an integer (whole number): ";
+        int numIntPrompt = in.getInt(numPrompt);
+        System.out.println("You entered: " + numIntPrompt);
+        // double with prompt
+        String dNumPrompt = "Enter an integer or decimal number: ";
+        double dblResponse = in.getDouble(dNumPrompt);
+        System.out.println("You entered: " + dblResponse);
 
-
-        // With no argument
-        int num = in.getInt();
-        System.out.println("You entered: " + num);
-
-        // With min & max arguments
+        // int with min & max arguments
         int numInRange = in.getInt(1, 10);
         System.out.println("You entered: " + numInRange);
-
-        // With min & max & prompt arguments
-        String intPrompt = "Please enter an integer number within the range of %s and %s: ";
+        // int with min & max & prompt arguments
+        String intPrompt = "Enter an integer (whole number) within the range of %s and %s: ";
         int numInRangePrompt = in.getInt(1, 10, intPrompt);
         System.out.println("You entered: " + numInRangePrompt);
 
-
-        // With no argument
-        double dNum = in.getDouble();
-        System.out.println("You entered: " + dNum);
-
-        // With min & max arguments
+        // double with min & max arguments
         double dNumInRange = in.getDouble(1, 10);
         System.out.println("You entered: " + dNumInRange);
-
         // With min & max & prompt arguments
-        String dblPrompt = "Please enter a number between %s and %s: ";
+        String dblPrompt = "Enter an integer or decimal number between %s and %s: ";
         double dNumInRangePrompt = in.getDouble(1, 10, dblPrompt);
         System.out.println("You entered: " + dNumInRangePrompt);
 
