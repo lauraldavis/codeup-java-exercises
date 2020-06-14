@@ -2,6 +2,8 @@ package movies;
 import util.Input;
 import java.util.Arrays;
 
+import static movies.MoviesArray.addMovie;
+
 public class MoviesApplication {
 
     static Input in = new Input();
@@ -22,9 +24,10 @@ public class MoviesApplication {
                     "4 - view movies in the horror category\n" +
                     "5 - view movies in the scifi category\n" +
                     "6 - view movies in the musical category\n" +
+                    "7 - add a new movie\n" +
                     "Enter your choice: ";
-            int numIntRangePrompt = in.getInt(0, 6, intPrompt);
-//            in.getString();
+            int numIntRangePrompt = in.getInt(0, 7, intPrompt);
+
             System.out.println("You entered: " + numIntRangePrompt);
 
             switch (numIntRangePrompt) {
@@ -70,6 +73,17 @@ public class MoviesApplication {
                         if(movie.getCategory().equals("musical")){
                             System.out.printf("%-35s%s%-10s%n", movie.getName(), " -- ", movie.getCategory());
                         }
+                    }
+                    break;
+                case 7:
+                    System.out.println("Okay! Let's add a new movie - you will be prompted to enter the movie name and category.");
+                    String newName = in.getString("Enter the movie name: ");
+                    String newCategory = in.getString("Enter the movie category (animated, drama, horror, scifi, or musical): ");
+                    System.out.println("Adding the new movie... please wait...");
+                    Movie[] newMovieArray = addMovie(movies, newName, newCategory);
+                    // added to temporary array, display all movies to reflect the one added
+                    for (Movie movie :newMovieArray) {
+                        System.out.printf("%-35s%s%-10s%n", movie.getName(), " -- ", movie.getCategory());
                     }
                     break;
                 default:
