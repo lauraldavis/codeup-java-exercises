@@ -1,15 +1,13 @@
 package movies;
 import util.Input;
 import java.util.Arrays;
-
-import static movies.MoviesArray.addMovie;
+import java.util.ArrayList;
 
 public class MoviesApplication {
 
     static Input in = new Input();
 
     static Movie[] movies = MoviesArray.findAll();
-
 
     public static void main(String[] args) {
 
@@ -76,13 +74,16 @@ public class MoviesApplication {
                     }
                     break;
                 case 7:
-                    System.out.println("Okay! Let's add a new movie - you will be prompted to enter the movie name and category.");
+                    System.out.println("Okay! Let's add a new movie!");
                     String newName = in.getString("Enter the movie name: ");
-                    String newCategory = in.getString("Enter the movie category (animated, drama, horror, scifi, or musical): ");
-                    System.out.println("Adding the new movie... please wait...");
-                    Movie[] newMovieArray = addMovie(movies, newName, newCategory);
-                    // added to temporary array, display all movies to reflect the one added
-                    for (Movie movie :newMovieArray) {
+                    String newCategory = in.getString("Enter the category (animated, drama, horror, scifi, or musical): ");
+                    Movie newMovie = new Movie(newName, newCategory);
+                    System.out.println("Adding your new movie... please wait...");
+
+                    ArrayList<Movie> myMovies = new ArrayList<>(Arrays.asList(movies));
+                    myMovies.add(newMovie);
+                    movies = myMovies.toArray(movies);
+                    for (Movie movie : movies) {
                         System.out.printf("%-35s%s%-10s%n", movie.getName(), " -- ", movie.getCategory());
                     }
                     break;

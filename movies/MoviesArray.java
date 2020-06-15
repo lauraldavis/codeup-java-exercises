@@ -1,14 +1,6 @@
 package movies;
 
-import java.util.Arrays;
-
 public class MoviesArray {
-
-    public static Movie[] addMovie (Movie[] arrayname, String name, String category) {
-        Movie[] newArray = Arrays.copyOf(arrayname, arrayname.length + 1);
-        newArray[newArray.length - 1] = new Movie(name, category);
-        return newArray;
-    }
 
     public static Movie[] findAll() {
         return new Movie[]{
