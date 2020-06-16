@@ -1,19 +1,20 @@
 package shapes;
 
 public class Square extends Rectangle {
-    private int side;
 
-    public Square (int side) {
-//        super(side,side); // this syntax is valid but the test results in zero values
-        this.side = side;
+    public Square (double side) {
+        super(side,side); // this syntax is valid, changed my overridden methods to use length rather than side
+//        this.side = side; // this was working for me, using side in overridden methods, but isn't what the exercise expected
     }
 
-    public int getArea() {
-        return (int) Math.pow(side,2);
+    public double getPerimeter() {
+        System.out.println("Using Square getPerimeter method");
+        return 4 * length;
     }
 
-    public int getPerimeter() {
-        return 4 * side;
+    public double getArea() {
+        System.out.println("Using Square getArea method");
+        return Math.pow(length,2);
     }
 
 }

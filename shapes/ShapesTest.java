@@ -7,7 +7,7 @@ public class ShapesTest {
         System.out.println(box1.getPerimeter());
         System.out.println(box1.getArea());
 
-        Rectangle box2 = new Square (5);
+        Rectangle box2 = new Square (5); // declaring type more generally (as a Rectangle) allows more functionality - can do things with all the Rectangle objects
         System.out.println(box2.getPerimeter());
         System.out.println(box2.getArea());
 
@@ -17,7 +17,7 @@ public class ShapesTest {
         if (box2 instanceof Square) {
             System.out.println("this is a square");
         }
-        // box2 is both a Rectangle and a Square
+        // box2 is both a Rectangle and a Square because of how it's declared
 
     }
 }
