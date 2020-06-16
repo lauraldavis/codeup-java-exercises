@@ -9,7 +9,7 @@ public class Square extends Rectangle {
     }
 
     public int getArea() {
-        return 2 * side;
+        return (int) Math.pow(side,2);
     }
 
     public int getPerimeter() {
