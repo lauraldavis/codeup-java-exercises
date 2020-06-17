@@ -1,6 +1,34 @@
 package shapes;
 
-public class Square extends Rectangle {
+public class Square extends Quadrilateral implements Measurable {
+
+    public Square (double side) {
+        super(side,side);
+    }
+
+    @Override
+    void setLength(double side) {
+        this.length = side;
+    }
+
+    @Override
+    void setWidth(double side) {
+        this.width = side;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return (4 * this.length);
+    }
+
+    @Override
+    public double getArea() {
+        return Math.pow(this.length, 2);
+    }
+
+
+
+    /* // code from Inheritance and Polymorphism - was set to Square extends Rectangle
 
     public Square (double side) {
         super(side,side); // this syntax is valid, changed my overridden methods to use length rather than side
@@ -16,5 +44,6 @@ public class Square extends Rectangle {
         System.out.println("Using Square getArea method");
         return Math.pow(length,2);
     }
+     */
 
 }
