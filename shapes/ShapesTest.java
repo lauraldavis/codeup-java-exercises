@@ -20,12 +20,32 @@ public class ShapesTest {
 //        10. What happens if you call getLength()/getWidth() methods of the myShape variable?
 //        System.out.println(r1.getLength()); //
 //        error: Cannot resolve getLength method in Measurable
-//        This only works if you instantiate the object with the Quadrilateral class/type, or with Rectangle/Square
-//        Quadrilateral is an abstract class, why can you do this? Because its only abstracted in the getArea() and getPerimeter() methods
+//        It only works if you instantiate the object with the Quadrilateral class/type, or with Rectangle/Square.
+//        Quadrilateral is an abstract class, why can you do this? Because it's only abstracted in the getArea() and getPerimeter() methods
         Quadrilateral r2 = new Rectangle(3, 2);
         System.out.println(r2.getLength());
+        System.out.println(r2.getWidth());
         System.out.println(r2.getArea());
 
+//        Question: is the blank constructor needed on Square and/or Rectangle? (no)
+//        It functions to instantiate a new shape without passing arguments. In this case it serves no purpose because you can't access the
+//        SetLength/SetWidth methods without changing the class type to Quadrilateral. So you probably don't want any of those blank constructors,
+//        to prevent creating an empty shape that can't be set? (In real-world you would probably add setters to make it usable.)
+        Measurable r3 = new Rectangle(5,1);
+        System.out.println(r3.getArea()); // prints 5.0
+//        r3.setLength(4);
+        Measurable s = new Square(1.5);
+        System.out.println(s.getArea()); // prints 2.25
+//        s.setLength(3.3);
+
+        // walkthrough notes
+        // the Shape class would be where you would add properties applicable to all shapes, not just Quadrilaterals, like id, color
+        // It's possible to create an object with the lower class, set properties, then assign the object to Quadrilateral
+        Square s2 = new Square(2.5);
+        System.out.println(s2.getArea());
+        s2.setLength(4);
+        Quadrilateral q1 = s2;
+        System.out.println(q1.getArea());
 
 
         /* //    code from Inheritance and Polymorphism

@@ -1,9 +1,8 @@
 package shapes;
 
-public class Rectangle extends Quadrilateral implements Measurable {
+public class Rectangle extends Quadrilateral { // implements Measurable is redundant?
 
-    public Rectangle() {
-    }
+    public Rectangle() {}
 
     public Rectangle(double length, double width) {
         super(length, width);

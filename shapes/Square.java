@@ -1,6 +1,8 @@
 package shapes;
 
-public class Square extends Quadrilateral implements Measurable {
+public class Square extends Quadrilateral { // implements Measurable is redundant?
+
+    public Square() {}
 
     public Square (double side) {
         super(side,side);
