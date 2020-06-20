@@ -99,4 +99,32 @@ public class Input {
         }
     }
 
+    public int getBinary() {
+        String text = "Enter a binary number: ";
+        return getBinary(text);
+    }
+
+    public int getBinary(String prompt) {
+        try {
+            return Integer.valueOf(getString(prompt),2);
+        } catch (Exception e) { // string, double, boolean
+            System.out.println("Invalid input.");
+            return getBinary(prompt);
+        }
+    }
+
+    public int getHex() {
+        String text = "Enter a hexadecimal number: ";
+        return getHex(text);
+    }
+
+    public int getHex(String prompt) {
+        try {
+            return Integer.valueOf(getString(prompt),16);
+        } catch (Exception e) { // string, int double, boolean
+            System.out.println("Invalid input.");
+            return getHex(prompt);
+        }
+    }
+
 }
