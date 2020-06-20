@@ -1,7 +1,6 @@
 package util;
 
 import java.util.Scanner;
-//    Scanner sc = new Scanner(System.in);
 
 public class Input {
     private Scanner sc;
@@ -36,34 +35,31 @@ public class Input {
     }
 
     public int getInt(String prompt) {
-        System.out.print(prompt);
-        if (sc.hasNextInt()) {
-            return sc.nextInt();
-        } else {
-            System.out.println("Invalid input. Enter valid integer.");
-            sc.next();
+        try {
+            return Integer.valueOf(getString(prompt));
+        } catch (Exception e) { // string, double, boolean
+            System.out.println("Invalid input.");
             return getInt(prompt);
         }
     }
 
     public int getInt(int min, int max) {
-        System.out.printf("Enter an integer (whole number) within the range of %s and %s: ", min, max);
-        int userInput = sc.nextInt();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.println("Please enter a number within the range.");
-            return getInt(min, max);
+        String text = "Enter an integer (whole number) within the range of %s and %s: ";
+        return getInt(min, max, text);
         }
-    }
 
     public int getInt(int min, int max, String prompt) {
-        System.out.printf(prompt, min, max);
-        int userInput = sc.nextInt();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.println("Please enter a number within the range.");
+        String text = String.format(prompt, min, max);
+        try {
+            int userInput = Integer.valueOf(getString(text));
+            if (userInput >= min && userInput <= max) {
+                return userInput;
+            } else {
+                System.out.println("Please enter a number within the range.");
+                return getInt(min, max, prompt);
+            }
+        } catch (Exception e) { // string, double, boolean
+            System.out.println("Invalid input.");
             return getInt(min, max, prompt);
         }
     }
@@ -74,35 +70,32 @@ public class Input {
     }
 
     public double getDouble(String prompt) {
-        System.out.print(prompt);
-        if (sc.hasNextDouble()) {
-            return sc.nextDouble();
-        } else {
-            System.out.println("Invalid input. Enter valid number.");
-            sc.next();
+        try {
+            return Double.valueOf(getString(prompt));
+        } catch (Exception e) { // string, boolean
+            System.out.println("Invalid input.");
             return getDouble(prompt);
         }
     }
 
     public double getDouble(double min, double max) {
-        System.out.printf("Enter an integer or decimal number between %s and %s: ", min, max);
-        double userInput = sc.nextDouble();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.println("Please enter a number within the range.");
-            return getDouble(min, max);
-        }
+        String text = "Enter an integer or decimal number between %s and %s: ";
+        return getDouble(min, max, text);
     }
 
     public double getDouble(double min, double max, String prompt) {
-        System.out.printf(prompt, min, max);
-        double userInput = sc.nextDouble();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.println("Please enter a number within the range.");
-            return getDouble(min, max);
+        String text = String.format(prompt, min, max);
+        try {
+            double userInput = Double.valueOf(getString(text));
+            if (userInput >= min && userInput <= max) {
+                return userInput;
+            } else {
+                System.out.println("Please enter a number within the range.");
+                return getDouble(min, max, prompt);
+            }
+        } catch (Exception e) { // string, boolean
+            System.out.println("Invalid input.");
+            return getDouble(min, max, prompt);
         }
     }
 
