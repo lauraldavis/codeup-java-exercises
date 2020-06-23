@@ -36,8 +36,8 @@ public class Input {
 
     public int getInt(String prompt) {
         try {
-            return Integer.valueOf(getString(prompt));
-        } catch (Exception e) { // string, double, boolean
+            return Integer.valueOf(getString(prompt)); // exercise specifically says to use Integer.valueOf(), IntelliJ would prefer parseInt()
+        } catch (NumberFormatException e) { // string, double, boolean
             System.out.println("Invalid input.");
             return getInt(prompt);
         }
@@ -58,7 +58,7 @@ public class Input {
                 System.out.println("Please enter a number within the range.");
                 return getInt(min, max, prompt);
             }
-        } catch (Exception e) { // string, double, boolean
+        } catch (NumberFormatException e) { // string, double, boolean
             System.out.println("Invalid input.");
             return getInt(min, max, prompt);
         }
@@ -72,7 +72,7 @@ public class Input {
     public double getDouble(String prompt) {
         try {
             return Double.valueOf(getString(prompt));
-        } catch (Exception e) { // string, boolean
+        } catch (NumberFormatException e) { // string, boolean
             System.out.println("Invalid input.");
             return getDouble(prompt);
         }
@@ -93,7 +93,7 @@ public class Input {
                 System.out.println("Please enter a number within the range.");
                 return getDouble(min, max, prompt);
             }
-        } catch (Exception e) { // string, boolean
+        } catch (NumberFormatException e) { // string, boolean
             System.out.println("Invalid input.");
             return getDouble(min, max, prompt);
         }
@@ -107,7 +107,7 @@ public class Input {
     public int getBinary(String prompt) {
         try {
             return Integer.valueOf(getString(prompt),2);
-        } catch (Exception e) { // string, double, boolean
+        } catch (NumberFormatException e) { // string, double, boolean
             System.out.println("Invalid input.");
             return getBinary(prompt);
         }
@@ -121,7 +121,7 @@ public class Input {
     public int getHex(String prompt) {
         try {
             return Integer.valueOf(getString(prompt),16);
-        } catch (Exception e) { // string, int double, boolean
+        } catch (NumberFormatException e) { // string, int double, boolean
             System.out.println("Invalid input.");
             return getHex(prompt);
         }
