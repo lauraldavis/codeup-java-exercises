@@ -5,8 +5,15 @@ import java.time.format.DateTimeFormatter;
 
 // example of older date classes
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+
+import util.Input;
 import java.util.Scanner;
+
+import static java.lang.Double.parseDouble;
+import static java.lang.String.valueOf;
 
 public class JavaStringBonuses {
 
@@ -40,8 +47,6 @@ public class JavaStringBonuses {
         return convertedDateString;
     }
 
-
-
 //        SimpleDateFormat sdf = new SimpleDateFormat("E yyyy/MM/dd HH:mm:ss"); // E = day
 //        System.out.println(sdf.format(date));
 
@@ -52,8 +57,30 @@ public class JavaStringBonuses {
 //        System.out.println(date.getDay()); // 0=Sunday
 //        System.out.println(date.getHours()); // correct hour
 
+    public static String countOfVowelsAndConsonants (String sentence) {
+        // remove spaces and punctuation from the input string
+        String letters = sentence.replaceAll("\\p{IsPunctuation}|\\p{IsWhite_Space}", "").toLowerCase();
+        System.out.println("Input sentence reduced to lc letters is: " + letters);
+        String vowels = "aeiou";
+        int countVowels = 0;
+        int countConsonants = 0;
+        for (int i = 0, n = letters.length(); i < n; i++) {
+            char c = letters.charAt(i);
+            if (vowels.contains(""+c)) {
+                countVowels++;
+            } else {
+                countConsonants++;
+            }
+        }
+        return countVowels + " vowels and " + countConsonants + " consonants";
+    }
+
+
 
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in); // used for date input not handled in Input class
+        Input in = new Input();
 
 /*  ### Date Format Converter Program
     **Take in the following format:**
@@ -67,7 +94,7 @@ public class JavaStringBonuses {
     * Converting date to string = formatting
     * Converting string to date = parsing
  */
-
+        System.out.println("\n* * * * * Date Format Converter Program * * * * *\n");
         // Creating a date string based on current datetime
         LocalDateTime myDate = LocalDateTime.now();
         System.out.println("Current date and time is: " + myDate); // 2020-06-10T15:03:33.542827
@@ -81,7 +108,6 @@ public class JavaStringBonuses {
         System.out.println("Converted date format: " + finalDateString);
 
         // Using older method w/SimpleDateFormat
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a date in MM/dd/yyy format: ");
         String inputDate = sc.nextLine();
         String outputDate = convertSimpleDateFormat(inputDate);
@@ -93,6 +119,8 @@ public class JavaStringBonuses {
     input - ```"The hills are alive."```
     output - ```7 vowels and 9 consonants```
  */
+        System.out.println("\n* * * * * Sentence Analyzer Program * * * * *\n");
+        System.out.println(countOfVowelsAndConsonants("The hills are alive."));
 
 /*            ### Command Line Calculator
     The program should welcome the user, prompt them for a calculation,
@@ -103,7 +131,6 @@ public class JavaStringBonuses {
     input validation (assume user enters correct data type).
             ​
     Example program:
-            ```
     WELCOME TO THE CALCULATOR APP!!! (program output)
             ​
     Do you wish to enter a new calculation? (program output)
@@ -119,9 +146,48 @@ public class JavaStringBonuses {
     Do you wish to enter a new calculation? (program outputs this)
     no (user enters this)
     GOODBYE!!!
-
-
  */
+
+        System.out.println("\n* * * * * Command Line Calculator Program * * * * *\n");
+        System.out.println("WELCOME TO THE CALCULATOR APP!!!\n");
+
+        boolean yesNo = false;
+        do {
+            String goAgainPrompt = "Do you wish to enter a new calculation? (Select y/n):\n";
+            yesNo = in.yesNo(goAgainPrompt);
+            System.out.println("You entered: " + yesNo);
+            if (!yesNo) {
+                System.out.println("GOODBYE!!!");
+            } else {
+                String numOperandsPrompt = "How many operands will you calculate? (Enter a number):\n";
+                int numOperands = in.getInt(numOperandsPrompt);
+
+                String calcPrompt = "Please enter a calculation: (For example: 2 + 2):\n";
+                String calc = in.getString(calcPrompt);
+
+                String operators = "+-*/%";
+                String operator = "";
+                String operands = "";
+                int countOperators = 0;
+                int countOperands = 0;
+                for (int i = 0, n = calc.length(); i < n; i++) { // loop through calculation string
+                    char c = calc.charAt(i);
+                    if (operators.contains(""+c)) { // if character is an operator, count it, add to operator string
+                        countOperators++;
+                        operator += ""+c;
+                    } else if (" ".contains(""+c)) { // if character is a space, replace with comma, add to operands string
+                        operands += ",";
+                     } else {                        // else - count it, add to operands string
+                        countOperands++;
+                        operands += ""+c;
+                    }
+                }
+                // in progress
+
+
+//        The output of 2 + 2 is 4. (program outputs this)
+            }
+        } while (yesNo = true);
 
     }
 }

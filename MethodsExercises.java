@@ -39,7 +39,11 @@ public class MethodsExercises {
         }
     }
     public static double modulus(double num1, double num2) {
-        return num1 % num2;
+        if (num2 == 0) {
+            return 0;
+        } else {
+            return num1 % num2;
+        }
     }
 
     // 2. Create a method that validates user input is in a certain range. Method should look like: public static int getInteger(int min, int max);
